@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './FormInput.scss';
 
 const FormInput = React.memo(({ value, name, onChange }) => {
