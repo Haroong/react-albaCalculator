@@ -1,12 +1,13 @@
 import React from 'react';
-
-const addComma = () => {};
+import './ShowResult.scss';
 
 const ShowResult = React.memo(({ result }) => {
+  const addComma = result.toLocaleString();
+
   return (
     <>
       이번 달 알바비는
-      <div className='result'>{result}</div>원 입니다.
+      <div className='result'>{addComma}원</div>입니다.
     </>
   );
 });

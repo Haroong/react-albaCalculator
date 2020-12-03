@@ -1,14 +1,18 @@
-.contents {
-  margin: 0 auto;
-  padding: 15px;
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&display=swap');
+body {
   justify-content: center;
   align-items: center;
-  form {
-    margin: 10px 0;
-    border-color: black;
-    border-radius: 5px;
+  font-family: 'Nanum Gothic', sans-serif;
+  .contents {
+    margin: 0 auto;
+    padding: 15px;
+    background-color: #f1faee;
+    color: #1d3557;
+    border: 1px solid #393e46;
+    border-radius: 10px;
   }
-  .result {
-    color: red;
+  h1 {
+    font-weight: bold;
+    color: #000000;
   }
 }

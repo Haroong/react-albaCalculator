@@ -1,28 +1,18 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import FormInput from './FormInput';
 import ShowResult from './ShowResult';
 import Tax from './Tax';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Button } from 'reactstrap';
 import './AlbaCalc.scss';
 
 const getCurrentYear = () => {
   return new Date().getFullYear();
 };
 
-const getMinimumWage = () => {
-  const urlstring =
-    'https://search.naver.com/search.naver?where=nexearch&sm=top_hty&fbm=1&ie=utf8&query=%EC%B5%9C%EC%A0%80%EC%8B%9C%EA%B8%89'; //window.location.href
-  const url = new URL(urlstring);
-  const c = url.searchParams.get('_wageInput');
-  console.log(c);
-};
-
-const addcomma = (num) => {
-  return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
-};
-
 const AlbaCalc = () => {
   const [field, setField] = useState({
-    wage: getMinimumWage(),
+    wage: 8590,
     hour: 1,
     day: 1,
   });
@@ -80,10 +70,11 @@ const AlbaCalc = () => {
         <FormInput name='hour' value={field.hour} onChange={handleField} />
         <FormInput name='day' value={field.day} onChange={handleField} />
         <Tax option={selectedOption} onChange={handleOption} />
-        <button id='inputBtn' type='submit' onClick={onClickCalcButton}>
+        <Button color='primary'>primary</Button>
+        <button className='btn' type='submit' onClick={onClickCalcButton}>
           계산하기
         </button>
-        <button id='resetBtn' type='reset' onClick={onClickResetButton}>
+        <button className='btn' type='reset' onClick={onClickResetButton}>
           초기화
         </button>
         <div className='show'>{show && <ShowResult result={result} />}</div>
