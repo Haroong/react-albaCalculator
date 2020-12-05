@@ -8,6 +8,7 @@ const Tax = React.memo(({ option, onChange }) => {
 
   return (
     <>
+      <h3>세금</h3>
       <select value={option} onChange={onChange}>
         <option selected value='1'>
           미적용
