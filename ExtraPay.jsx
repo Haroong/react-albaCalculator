@@ -1,4 +1,5 @@
 import React from 'react';
+import './ExtraPay.scss';
 
 const ExtraPay = React.memo(({ time, onClick }) => {
   const types = ['포함', '미포함'];
@@ -9,7 +10,12 @@ const ExtraPay = React.memo(({ time, onClick }) => {
       <h3>주휴수당</h3>
       <div>
         {types.map((type, index) => (
-          <button key={index} disabled={!enabled} onClick={onClick}>
+          <button
+            className='btnExtraPay'
+            key={index}
+            disabled={!enabled}
+            onClick={onClick}
+          >
             {type}
           </button>
         ))}

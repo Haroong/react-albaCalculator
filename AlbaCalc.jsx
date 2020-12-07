@@ -14,10 +14,10 @@ const AlbaCalc = () => {
     wage: 8590,
     time: 1,
     day: 1,
-    extra: 0,
   });
   const [show, setShow] = useState(false);
   const [selectedOption, setSelectedOption] = useState('');
+  const [extra, setExtra] = useState(0);
   const [result, setResult] = useState('');
 
   const handleField = (e) => {
@@ -33,7 +33,8 @@ const AlbaCalc = () => {
   };
 
   const handleExtraPay = (e) => {
-    const extra = (getTimeResult() / 40) * 8 * field.wage;
+    setExtra((getTimeResult() / 40) * 8 * field.wage);
+    console.log(extra);
     return extra;
   };
 
@@ -66,6 +67,7 @@ const AlbaCalc = () => {
       time: 1,
       day: 1,
     });
+    setExtra(0);
     setSelectedOption('');
     setShow(false);
   };
@@ -73,7 +75,7 @@ const AlbaCalc = () => {
   return (
     <>
       <div className='contents'>
-        <h1>알바비가 얼마나 들어올까?</h1>
+        <h1>알바비를 알려줘</h1>
         <div>
           {getCurrentYear()}년 현재 최저 시급은 {field.wage}원입니다.
         </div>
@@ -82,12 +84,14 @@ const AlbaCalc = () => {
         <FormInput name='day' value={field.day} onChange={handleField} />
         <ExtraPay time={getTimeResult()} onClick={handleExtraPay} />
         <Tax option={selectedOption} onChange={handleOption} />
-        <button className='btn' type='submit' onClick={onClickCalcButton}>
-          계산하기
-        </button>
-        <button className='btn' type='reset' onClick={onClickResetButton}>
-          초기화
-        </button>
+        <div>
+          <button className='btn' type='submit' onClick={onClickCalcButton}>
+            계산하기
+          </button>
+          <button className='btn' type='reset' onClick={onClickResetButton}>
+            초기화
+          </button>
+        </div>
         <div className='show'>{show && <ShowResult result={result} />}</div>
       </div>
     </>
