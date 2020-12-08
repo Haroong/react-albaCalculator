@@ -75,7 +75,7 @@ const AlbaCalc = () => {
   return (
     <>
       <div className='contents'>
-        <h1 id='title'>알바비를 알려줘 😎</h1>
+        <h1 id='title'>알바비를 계산해줘 😎</h1>
         <div id='description'>
           {getCurrentYear()}년 현재 최저 시급은 {field.wage}원입니다.
         </div>
