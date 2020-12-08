@@ -75,8 +75,8 @@ const AlbaCalc = () => {
   return (
     <>
       <div className='contents'>
-        <h1>알바비를 알려줘</h1>
-        <div>
+        <h1 id='title'>알바비를 알려줘 😎</h1>
+        <div id='description'>
           {getCurrentYear()}년 현재 최저 시급은 {field.wage}원입니다.
         </div>
         <FormInput name='wage' value={field.wage} onChange={handleField} />
@@ -85,10 +85,20 @@ const AlbaCalc = () => {
         <ExtraPay time={getTimeResult()} onClick={handleExtraPay} />
         <Tax option={selectedOption} onChange={handleOption} />
         <div>
-          <button className='btn' type='submit' onClick={onClickCalcButton}>
+          <button
+            id='calculate'
+            className='btn'
+            type='submit'
+            onClick={onClickCalcButton}
+          >
             계산하기
           </button>
-          <button className='btn' type='reset' onClick={onClickResetButton}>
+          <button
+            id='reset'
+            className='btn'
+            type='reset'
+            onClick={onClickResetButton}
+          >
             초기화
           </button>
         </div>

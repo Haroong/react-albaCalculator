@@ -6,8 +6,7 @@ const ShowResult = React.memo(({ result }) => {
 
   return (
     <>
-      이번 달 알바비는
-      <div className='result'>{addComma}원</div>입니다.
+      <div id='result'>이번 달 알바비는 {addComma}원 입니다.</div>
     </>
   );
 });

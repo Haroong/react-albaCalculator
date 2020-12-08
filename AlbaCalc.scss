@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&display=swap');
 body {
+  display: flex;
   justify-content: center;
   align-items: center;
   font-family: 'Nanum Gothic', sans-serif;
@@ -8,11 +9,23 @@ body {
     padding: 15px;
     background-color: #ffffff;
     color: #1d3557;
-    border: 1px solid #393e46;
-    border-radius: 10px;
-  }
-  h1 {
-    font-weight: bold;
-    color: #000000;
+    #title {
+      font-weight: bold;
+      color: white;
+      text-align: center;
+      background-color: #1d3557;
+    }
+    #description {
+      text-align: center;
+    }
+    .btn {
+      width: 150px;
+      #calculate {
+        background-color: royalblue;
+      }
+      #reset {
+        background-color: tomato;
+      }
+    }
   }
 }
