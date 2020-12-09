@@ -3,11 +3,13 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack serve --env development"
+    "dev": "webpack serve --env development",
+    "deploy": "gh-pages -d build",
+    "predeploy": "npm run build"
   },
   "author": "HyeRyun",
   "license": "MIT",
-  "homepage": "https://haroong.github.io/",
+  "homepage": "https://haroong.github.io/haroong.github.io",
   "dependencies": {
     "bootstrap": "^4.5.3",
     "jquery": "^3.5.1",
