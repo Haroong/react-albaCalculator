@@ -86,20 +86,20 @@ const AlbaCalc = () => {
         <Tax option={selectedOption} onChange={handleOption} />
         <div>
           <button
-            id='calculate'
-            className='btn'
-            type='submit'
-            onClick={onClickCalcButton}
-          >
-            계산하기
-          </button>
-          <button
             id='reset'
             className='btn'
             type='reset'
             onClick={onClickResetButton}
           >
             초기화
+          </button>
+          <button
+            id='calculate'
+            className='btn'
+            type='submit'
+            onClick={onClickCalcButton}
+          >
+            계산하기
           </button>
         </div>
         <div className='show'>{show && <ShowResult result={result} />}</div>

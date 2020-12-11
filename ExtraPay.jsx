@@ -12,6 +12,7 @@ const ExtraPay = React.memo(({ time, onClick }) => {
         {types.map((type, index) => (
           <button
             className='btn'
+            id={type}
             key={index}
             disabled={!enabled}
             onClick={onClick}

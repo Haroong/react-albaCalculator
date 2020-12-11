@@ -12,7 +12,7 @@ const Tax = React.memo(({ option, onChange }) => {
       <div id='tax'>
         <h3>세금</h3>
         <select id='selectTax' value={option} onChange={onChange}>
-          <option selected value='1'>
+          <option defaultValue value='1'>
             미적용
           </option>
           <option value={taxList.tax1}>8.98%</option>

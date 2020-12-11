@@ -6,7 +6,7 @@ module.exports = {
   mode: 'development',
   devtool: 'inline-source-map',
   resolve: {
-    extensions: ['.js', '.jsx'],
+    extensions: ['.js', '.jsx', '.scss'],
   },
   entry: {
     app: './client',
@@ -32,12 +32,10 @@ module.exports = {
             '@babel/plugin-proposal-class-properties',
           ],
         },
-        exclude: /node_modules/,
       },
       {
-        test: /\.s[ac]ss$/i,
+        test: /\.scss$/,
         use: ['style-loader', 'css-loader', 'sass-loader'],
-        exclude: /node_modules/,
       },
     ],
   },
