@@ -4,7 +4,7 @@
   "main": "index.js",
   "author": "HyeRyun",
   "license": "MIT",
-  "homepage": "https://haroong.github.io/react-albaCalculator",
+  "homepage": "https://haroong.github.io/react-albaCalculator/",
   "dependencies": {
     "bootstrap": "^4.5.3",
     "jquery": "^3.5.1",
