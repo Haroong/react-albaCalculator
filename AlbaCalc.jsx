@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import cheerio from 'cheerio';
 import FormInput from './FormInput';
 import ShowResult from './ShowResult';
 import ExtraPay from './ExtraPay';
@@ -11,7 +13,7 @@ const getCurrentYear = () => {
 
 const AlbaCalc = () => {
   const [field, setField] = useState({
-    wage: 8590,
+    wage: '',
     time: 1,
     day: 1,
   });
@@ -47,7 +49,6 @@ const AlbaCalc = () => {
     let result = field.wage * field.time * field.day,
       tax = 0;
 
-    console.log(result);
     if (selectedOption === 8.98) {
       tax = result * 0.0898;
       setResult(parseInt(result - tax));
@@ -72,6 +73,23 @@ const AlbaCalc = () => {
     setShow(false);
   };
 
+  useEffect(() => {
+    const getCurrentWage = async() => {
+      const url = 'https://www.naver.com/search.naver?sm=tab_hty.top&where=nexearch&query=%EC%B5%9C%EC%A0%80%EC%8B%9C%EA%B8%89&oquery=2020%EB%85%84+%EC%B5%9C%EC%A0%80%EC%8B%9C%EA%B8%89&tqi=U9mahlp0JXoss5NVxmRssssssfd-316743';
+      await axios.get(url)
+          .then(res => {
+              const $ = cheerio.load(res.data);
+              const wage = $('.input_won>.input_wrap>._wageInput').val();
+              console.log(wage);
+              return wage;
+          })
+          .catch(err => {
+            console.error(err);
+          });
+    }
+    getCurrentWage();
+  }, [field.wage]);
+
   return (
     <>
       <div className='contents'>
@@ -79,12 +97,14 @@ const AlbaCalc = () => {
         <div id='description'>
           {getCurrentYear()}년 현재 최저 시급은 {field.wage}원입니다.
         </div>
-        <FormInput name='wage' value={field.wage} onChange={handleField} />
-        <FormInput name='time' value={field.time} onChange={handleField} />
-        <FormInput name='day' value={field.day} onChange={handleField} />
-        <ExtraPay time={getTimeResult()} onClick={handleExtraPay} />
-        <Tax option={selectedOption} onChange={handleOption} />
-        <div>
+        <div id='inputDiv'>
+          <FormInput name='wage' value={field.wage} onChange={handleField} />
+          <FormInput name='time' value={field.time} onChange={handleField} />
+          <FormInput name='day' value={field.day} onChange={handleField} />
+          <ExtraPay time={getTimeResult()} onClick={handleExtraPay} />
+          <Tax option={selectedOption} onChange={handleOption} />
+        </div>
+        <div id='bottomBtn'>
           <button
             id='reset'
             className='btn'
