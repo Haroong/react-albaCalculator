@@ -13,7 +13,7 @@ const getCurrentYear = () => {
 
 const AlbaCalc = () => {
   const [field, setField] = useState({
-    wage: '',
+    wage: 8590,
     time: 1,
     day: 1,
   });
@@ -72,23 +72,6 @@ const AlbaCalc = () => {
     setSelectedOption('');
     setShow(false);
   };
-
-  useEffect(() => {
-    const getCurrentWage = async() => {
-      const url = 'https://www.naver.com/search.naver?sm=tab_hty.top&where=nexearch&query=%EC%B5%9C%EC%A0%80%EC%8B%9C%EA%B8%89&oquery=2020%EB%85%84+%EC%B5%9C%EC%A0%80%EC%8B%9C%EA%B8%89&tqi=U9mahlp0JXoss5NVxmRssssssfd-316743';
-      await axios.get(url)
-          .then(res => {
-              const $ = cheerio.load(res.data);
-              const wage = $('.input_won>.input_wrap>._wageInput').val();
-              console.log(wage);
-              return wage;
-          })
-          .catch(err => {
-            console.error(err);
-          });
-    }
-    getCurrentWage();
-  }, [field.wage]);
 
   return (
     <>
