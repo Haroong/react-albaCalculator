@@ -5,6 +5,10 @@
   "author": "HyeRyun",
   "license": "MIT",
   "homepage": "https://haroong.github.io/react-albaCalculator/",
+  "scripts": {
+    "dev": "webpack serve --env development",
+    "deploy": "gh-pages -d build"
+  },
   "dependencies": {
     "axios": "^0.21.0",
     "bootstrap": "^4.5.3",
@@ -39,11 +43,6 @@
     "webpack": "^4.44.2",
     "webpack-cli": "^4.2.0",
     "webpack-dev-server": "^3.11.0"
-  },
-  "scripts": {
-    "dev": "webpack serve --env development",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
   },
   "keywords": [],
   "description": ""
