@@ -7,7 +7,8 @@
   "scripts": {
     "dev": "webpack serve --env development",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build",
+    "start":"node index.js",
   },
   "dependencies": {
     "axios": "^0.21.0",
