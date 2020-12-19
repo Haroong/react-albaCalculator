@@ -5,7 +5,9 @@
   "author": "HyeRyun",
   "license": "MIT",
   "scripts": {
-    "build": "webpack serve --env development"
+    "dev": "webpack serve --env development",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "dependencies": {
     "axios": "^0.21.0",
