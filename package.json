@@ -5,7 +5,7 @@
   "author": "HyeRyun",
   "license": "MIT",
   "scripts": {
-    "start": "webpack serve --env development"
+    "build": "webpack serve --env development"
   },
   "dependencies": {
     "axios": "^0.21.0",
